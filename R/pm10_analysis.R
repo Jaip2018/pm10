@@ -5,6 +5,7 @@
 
 ## Preliminaries
 library(openair)
+library(Hmisc)
 
 
 #### 1. Import and process data ####
@@ -94,6 +95,11 @@ day<-factor(day,levels=c('weekday','weekend'),ordered=TRUE)
 usm <- cbind(usm,day)
 rm(day,i)
 
+## Add 17 hours to date to coincide with end of sampling time
+s18$date <- s18$date + (17*60*60)
+usm$date <- usm$date + (17*60*60)
+
+
 #### 2. Exploratory analyses ####
 # pm10
 polarPlot(s18,pollutant='pm10',k=50,statistic='mean',main='s18')
@@ -136,3 +142,67 @@ polarPlot(usm,pollutant='Ca',k=50,statistic='mean',main='usm')
 # Cu
 polarPlot(s18,pollutant='Cu',k=50,statistic='mean',main='s18')
 polarPlot(usm,pollutant='Cu',k=50,statistic='mean',main='usm')
+
+#### Fig. 2 Boxplot of PM10 in different seasons ####
+
+png(filename='figs/fig2.png',height=16,width=8,res=180,units='cm')
+
+
+par(mfrow=c(2,1),tcl=-0.5,omi=c(0.2,0,0,0))
+
+par(mai=c(0.2,0.7,0.2,0.1))
+boxplot(usm$pm10[which(s18$monsoon=='NEM')],usm$pm10[which(s18$monsoon=='STM')],
+        usm$pm10[which(s18$monsoon=='SWM')],usm$pm10[which(s18$monsoon=='FTM')],
+        ylim=c(0,150),names=c('','','',''),xlab='Monsoon',
+        ylab='')
+text('a) USM',x=1,y=148)
+minor.tick(nx=0,ny=2)
+
+par(mai=c(0.4,0.7,0,0.1))
+boxplot(s18$pm10[which(s18$monsoon=='NEM')],s18$pm10[which(s18$monsoon=='STM')],
+        s18$pm10[which(s18$monsoon=='SWM')],s18$pm10[which(s18$monsoon=='FTM')],
+        ylim=c(0,150),names = c('NEM','STM','SWM','FTM'),ylab='')
+text('b) S18',x=1,y=148)
+minor.tick(nx=0,ny=2)
+
+mtext("Monsoon", side=1, outer=T, at=0.6)
+mtext(expression(paste('PM10 (',mu,'g m'^'-3',')')), side=2, outer=T, at=0.5,
+      line=-1.3)
+
+dev.off()
+
+#### Fig. 3 Factor 1 barplot ####
+fa <- read.csv('data/factor_analy.csv',sep=',',header = TRUE)
+# Reclass the date variable
+fa$date <- as.POSIXlt(fa$date,format="%m/%d/%y")
+
+png(filename='figs/fig3.png',height=8,width=16,res=360,units='cm')
+par(mai=c(0.8,0.6,0.4,0.2))
+barplot(fa$F1,names.arg = fa$date,col='white',ylim=c(-3,1.5))
+lines(x=c(90,90),
+      y=c(-10,10),lty = 2, col ='black',lwd=2)
+mtext(side=2,'Factor scores',line = 2)
+mtext(side=1,'Date',line = 2.5)
+mtext(side=3,'S18',line=0.5, at = 45)
+mtext(side=3,'USM',line=0.5,at = 135)
+
+box()
+minor.tick(ny=2,nx=10)
+dev.off()
+
+#### Fig. 4 TrajPlot for S18 on 2012-06-20 ####
+png(filename='figs/fig4.png',height=16,width=10,res=360,units='cm')
+
+trajPlot(selectByDate(trajS18_2012_24h,start='20/6/2012',end='20/6/2012'),
+         map.res = 'hires', projection = 'mercator',parameters=NULL,
+         grid.col = 'black',lwd=2,fontsize=8)
+
+dev.off()
+
+png(filename='figs/fig4a.png',res=360,height=16,width=12,units='cm')
+
+trajPlot(selectByDate(trajS18_2012_24h,start='11/8/2012',end='11/8/2012'),
+         map.res = 'hires',projection = 'mercator',parameters=NULL,
+         grid.col = 'black',lwd=2,fontsize=8)
+dev.off()
+
