@@ -143,9 +143,117 @@ polarPlot(usm,pollutant='Ca',k=50,statistic='mean',main='usm')
 polarPlot(s18,pollutant='Cu',k=50,statistic='mean',main='s18')
 polarPlot(usm,pollutant='Cu',k=50,statistic='mean',main='usm')
 
-#### Fig. 2 Boxplot of PM10 in different seasons ####
+#### Fig. 2 Time series of PM10, WS, WD, T, RH ####
+png(filename='figs/fig2.png',height=16,width=16,res=360,units='cm')
 
-png(filename='figs/fig2.png',height=16,width=8,res=180,units='cm')
+par(mfrow=c(5,1),tcl=-0.5,omi=c(0.5,0,0.1,0))
+
+# a) PM10 time series
+par(mai=c(0.1,0.7,0.2,0.1))
+plot(usm$date,usm$pm10,type='l',lwd=1,ylim=c(0,150), xlab= '',ylab='', 
+     xaxt = 'n')
+lines(s18$date,s18$pm10,lty=4,lwd=2)
+mtext(side=2,expression(paste('PM10 (',mu,'g m'^'-3',')')),line=2)
+lines(x=c(as.POSIXlt('2011-12-01'),as.POSIXlt('2011-12-01')),
+      y=c(-10,200),lty=5,lwd=1)
+lines(x=c(as.POSIXlt('2012-04-01'),as.POSIXlt('2012-04-01')),
+      y=c(-10,200),lty=5,lwd=1)
+lines(x=c(as.POSIXlt('2012-06-01'),as.POSIXlt('2012-06-01')),
+      y=c(-10,200),lty=5,lwd=1)
+lines(x=c(as.POSIXlt('2012-10-01'),as.POSIXlt('2012-10-01')),
+      y=c(-10,200),lty=5,lwd=1)
+lines(x=c(as.POSIXlt('2012-12-01'),as.POSIXlt('2012-12-01')),
+      y=c(-10,200),lty=5,lwd=1)
+mtext(side=3,'FTM',line=0.5, adj = 0.005)
+mtext(side=3,'NEM',line=0.5,adj = 0.2)
+mtext(side=3,'STM',line=0.5, adj=0.47)
+mtext(side=3,'SWM',line=0.5,adj = 0.7)
+mtext(side=3,'FTM',line=0.5, adj = 0.95)
+legend('topright', legend = c('USM','S18'),
+       lty = c(1, 4), lwd = c(1, 2))
+text(x=as.POSIXlt('2011-11-10'),y=135,'a)',cex=1.5)
+#minor.tick(nx=2, ny=2)
+
+# b) ws time series
+par(mai=c(0.1,0.7,0.1,0.1))
+plot(usm$date,usm$ws,type='l',lwd=1,ylim=c(0,5), xlab= '',ylab='', 
+     xaxt = 'n')
+lines(s18$date,s18$ws,lty=4,lwd=2)
+mtext(side=2,expression(paste('WS ','(m s'^'-1',')')),line=2)
+lines(x=c(as.POSIXlt('2011-12-01'),as.POSIXlt('2011-12-01')),
+      y=c(-10,200),lty=5,lwd=1)
+lines(x=c(as.POSIXlt('2012-04-01'),as.POSIXlt('2012-04-01')),
+      y=c(-10,200),lty=5,lwd=1)
+lines(x=c(as.POSIXlt('2012-06-01'),as.POSIXlt('2012-06-01')),
+      y=c(-10,200),lty=5,lwd=1)
+lines(x=c(as.POSIXlt('2012-10-01'),as.POSIXlt('2012-10-01')),
+      y=c(-10,200),lty=5,lwd=1)
+lines(x=c(as.POSIXlt('2012-12-01'),as.POSIXlt('2012-12-01')),
+      y=c(-10,200),lty=5,lwd=1)
+text(x=as.POSIXlt('2011-11-10'),y=4.5,'b)',cex=1.5)
+#minor.tick(nx=2, ny=2)
+
+# c) wd time series
+par(mai=c(0.1,0.7,0.1,0.1))
+plot(usm$date,usm$wd,type='l',lwd=1,ylim=c(0,360), xlab= '',ylab='', 
+     xaxt = 'n')
+lines(s18$date,s18$wd,lty=4,lwd=2)
+mtext(side=2,expression(paste('WD ','(',degree,')')),line=2)
+lines(x=c(as.POSIXlt('2011-12-01'),as.POSIXlt('2011-12-01')),
+      y=c(-10,400),lty=5,lwd=1)
+lines(x=c(as.POSIXlt('2012-04-01'),as.POSIXlt('2012-04-01')),
+      y=c(-10,400),lty=5,lwd=1)
+lines(x=c(as.POSIXlt('2012-06-01'),as.POSIXlt('2012-06-01')),
+      y=c(-10,400),lty=5,lwd=1)
+lines(x=c(as.POSIXlt('2012-10-01'),as.POSIXlt('2012-10-01')),
+      y=c(-10,400),lty=5,lwd=1)
+lines(x=c(as.POSIXlt('2012-12-01'),as.POSIXlt('2012-12-01')),
+      y=c(-10,400),lty=5,lwd=1)
+text(x=as.POSIXlt('2011-11-10'),y=335,'c)',cex=1.5)
+#minor.tick(nx=2, ny=2)
+
+# d) T time series
+par(mai=c(0.1,0.7,0.1,0.1))
+plot(usm$date,usm$T,type='l',lwd=1,ylim=c(24,34), xlab= '',ylab='', 
+     xaxt = 'n')
+lines(s18$date,s18$T,lty=4,lwd=2)
+mtext(side=2,expression(paste('T ','(',degree,'C)')),line=2)
+lines(x=c(as.POSIXlt('2011-12-01'),as.POSIXlt('2011-12-01')),
+      y=c(-10,400),lty=5,lwd=1)
+lines(x=c(as.POSIXlt('2012-04-01'),as.POSIXlt('2012-04-01')),
+      y=c(-10,400),lty=5,lwd=1)
+lines(x=c(as.POSIXlt('2012-06-01'),as.POSIXlt('2012-06-01')),
+      y=c(-10,400),lty=5,lwd=1)
+lines(x=c(as.POSIXlt('2012-10-01'),as.POSIXlt('2012-10-01')),
+      y=c(-10,400),lty=5,lwd=1)
+lines(x=c(as.POSIXlt('2012-12-01'),as.POSIXlt('2012-12-01')),
+      y=c(-10,400),lty=5,lwd=1)
+text(x=as.POSIXlt('2011-11-10'),y=33.2,'d)',cex=1.5)
+#minor.tick(nx=2, ny=2)
+
+# e) RH time series
+par(mai=c(0.1,0.7,0.1,0.1))
+plot(usm$date,usm$RH,type='l',lwd=1,ylim=c(50,100), xlab= '',ylab='')
+lines(s18$date,s18$RH,lty=4,lwd=2)
+mtext(side=2,expression(paste('RH ','(%)')),line=2)
+lines(x=c(as.POSIXlt('2011-12-01'),as.POSIXlt('2011-12-01')),
+      y=c(-10,400),lty=5,lwd=1)
+lines(x=c(as.POSIXlt('2012-04-01'),as.POSIXlt('2012-04-01')),
+      y=c(-10,400),lty=5,lwd=1)
+lines(x=c(as.POSIXlt('2012-06-01'),as.POSIXlt('2012-06-01')),
+      y=c(-10,400),lty=5,lwd=1)
+lines(x=c(as.POSIXlt('2012-10-01'),as.POSIXlt('2012-10-01')),
+      y=c(-10,400),lty=5,lwd=1)
+lines(x=c(as.POSIXlt('2012-12-01'),as.POSIXlt('2012-12-01')),
+      y=c(-10,400),lty=5,lwd=1)
+text(x=as.POSIXlt('2011-11-10'),y=96,'e)',cex=1.5)
+
+mtext("Date", side=1, outer=T, at=0.55,line = 2)
+dev.off()
+
+#### Fig. 3 Boxplot of PM10 in different seasons ####
+
+png(filename='figs/fig3.png',height=16,width=8,res=180,units='cm')
 
 
 par(mfrow=c(2,1),tcl=-0.5,omi=c(0.2,0,0,0))
@@ -171,12 +279,12 @@ mtext(expression(paste('PM10 (',mu,'g m'^'-3',')')), side=2, outer=T, at=0.5,
 
 dev.off()
 
-#### Fig. 3 Factor 1 barplot ####
+#### Fig. 4 Factor 1 barplot ####
 fa <- read.csv('data/factor_analy.csv',sep=',',header = TRUE)
 # Reclass the date variable
 fa$date <- as.POSIXlt(fa$date,format="%m/%d/%y")
 
-png(filename='figs/fig3.png',height=8,width=16,res=360,units='cm')
+png(filename='figs/fig4.png',height=8,width=16,res=360,units='cm')
 par(mai=c(0.8,0.6,0.4,0.2))
 barplot(fa$F1,names.arg = fa$date,col='white',ylim=c(-3,1.5))
 lines(x=c(90,90),
@@ -190,19 +298,21 @@ box()
 minor.tick(ny=2,nx=10)
 dev.off()
 
-#### Fig. 4 TrajPlot for S18 on 2012-06-20 ####
-png(filename='figs/fig4.png',height=16,width=10,res=360,units='cm')
+#### Fig. 5 TrajPlot for S18 on 2012-06-20 ####
+d1 <- selectByDate(trajS18_2012_96h,start='20/6/2012',end='20/6/2012')
+d2 <- selectByDate(trajS18_2012_96h,start='11/8/2012',end='11/8/2012')
+d3 <- selectByDate(trajUSM_2012_96h,start='29/2/2012',end='29/2/2012')
+d4 <- selectByDate(trajUSM_2012_96h,start='25/4/2012',end='25/4/2012')
+d <- rbind(d1,d2,d3,d4)
+d$day <- as.Date(d$date)
 
-trajPlot(selectByDate(trajS18_2012_24h,start='20/6/2012',end='20/6/2012'),
+png(filename='figs/fig5.png',height=16,width=16,res=400,units='cm')
+trajPlot(d,
          map.res = 'hires', projection = 'mercator',parameters=NULL,
-         grid.col = 'black',lwd=2,fontsize=8)
-
+         grid.col = 'black',lwd=2,type='day',layout=c(2,2),fontsize=12)
 dev.off()
 
-png(filename='figs/fig4a.png',res=360,height=16,width=12,units='cm')
+rm(d1,d2,d3,d4,d)
 
-trajPlot(selectByDate(trajS18_2012_24h,start='11/8/2012',end='11/8/2012'),
-         map.res = 'hires',projection = 'mercator',parameters=NULL,
-         grid.col = 'black',lwd=2,fontsize=8)
-dev.off()
+
 

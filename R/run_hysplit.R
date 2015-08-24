@@ -84,6 +84,11 @@ trajLevel(s18t,pollutant='pm10',statistic='difference',orientation=c(90,90,0),
 
 # For date 2012-06-20
 
-trajPlot(selectByDate(trajUSM_2012_96h,start='29/2/2012',end='29/2/2012'),
+d1 <- selectByDate(trajS18_2012_96h,start='20/6/2012',end='20/6/2012')
+d2 <- selectByDate(trajS18_2012_96h,start='11/8/2012',end='11/8/2012')
+d <- rbind(d1,d2)
+d$day <- as.Date(d$date)
+
+trajPlot(d,
          map.res = 'hires', projection = 'mercator',parameters=NULL,
-         grid.col = 'black',lwd=2)
+         grid.col = 'black',lwd=2,type='day',layout=c(2,1))
