@@ -575,4 +575,27 @@ minor.tick(ny=2,nx=10)
 
 dev.off()
 
+#### Importing only factors into S18 and USM dataframes ####
+
+# USM 
+fa_usmf1 <- fa$F1[79:159]
+fa_usmf11 <- fa$F1.1[79:159]
+fa_usmf2 <- fa$F2[79:159]
+fa_usmf3 <- fa$F3[79:159]
+fa_usmf4 <- fa$F4[79:159]
+fa_usm <- data.frame(f_met=fa_usmf1,f_metal1=fa_usmf11,f_metal2=fa_usmf2,
+                     f_metal3=fa_usmf3,f_metal4=fa_usmf4)
+usm <- cbind(usm,fa_usm)
+rm(fa_usmf1,fa_usmf11,fa_usmf2,fa_usmf3,fa_usmf4,fa_usm)
+
+# S18
+fa_s18f1 <- fa$F1[1:78]
+fa_s18f11 <- fa$F1.1[1:78]
+fa_s18f2 <- fa$F2[1:78]
+fa_s18f3 <- fa$F3[1:78]
+fa_s18f4 <- fa$F4[1:78]
+fa_s18 <- data.frame(f_met=fa_s18f1,f_metal1=fa_s18f11,f_metal2=fa_s18f2,
+                     f_metal3=fa_s18f3,f_metal4=fa_s18f4)
+s18 <- cbind(s18,fa_s18)
+rm(fa_s18f1,fa_s18f11,fa_s18f2,fa_s18f3,fa_s18f4,fa_s18)
 
