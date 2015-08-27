@@ -599,3 +599,82 @@ fa_s18 <- data.frame(f_met=fa_s18f1,f_metal1=fa_s18f11,f_metal2=fa_s18f2,
 s18 <- cbind(s18,fa_s18)
 rm(fa_s18f1,fa_s18f11,fa_s18f2,fa_s18f3,fa_s18f4,fa_s18)
 
+#### Gridded trajectory plot (24 h) for USM and PM10 ####
+png(filename='figs/trajUSMpm10.png',height=16,width=16,res=400,units='cm')
+trajLevel(subset(usmt,lat > 2 & lat < 8 & lon > 90 & lon < 120),
+          pollutant='pm10',statistic='difference',projection='mercator',
+          parameters = NULL,border=NA,map.res = 'hires',type='monsoon',col='jet',
+          layout=c(2,2),key.header='USM: PM10',map.alpha=0.5,grid.col = 'black')
+dev.off()
+
+#### Gridded trajectory plot (24 h) for S18 and PM10 ####
+png(filename='figs/trajS18pm10.png',height=16,width=16,res=400,units='cm')
+trajLevel(subset(s18t,lat > 2 & lat < 8 & lon > 90 & lon < 120),
+          pollutant='pm10',statistic='difference',projection='mercator',
+          parameters = NULL,border=NA,map.res = 'hires',type='monsoon',col='jet',
+          layout=c(2,2),key.header='S18: PM10',map.alpha=0.5,grid.col = 'black')
+dev.off()
+
+#### Gridded trajectory plot (24 h) for USM and Mn-Fe-Cd ####
+png(filename='figs/trajUSMF1.png',height=16,width=16,res=400,units='cm')
+trajLevel(subset(usmt,lat > 2 & lat < 8 & lon > 90 & lon < 120),
+          pollutant='f_metal1',statistic='difference',projection='mercator',
+          parameters = NULL,border=NA,map.res = 'hires',type='monsoon',col='jet',
+          layout=c(2,2),key.header='USM: Mn-Fe-Cd',map.alpha=0.5,grid.col = 'black')
+dev.off()
+
+#### Gridded trajectory plot (24 h) for S18 and Mn-Fe-Cd ####
+png(filename='figs/trajS18F1.png',height=16,width=16,res=400,units='cm')
+trajLevel(subset(s18t,lat > 2 & lat < 8 & lon > 90 & lon < 120),
+          pollutant='f_metal1',statistic='difference',projection='mercator',
+          parameters = NULL,border=NA,map.res = 'hires',type='monsoon',col='jet',
+          layout=c(2,2),key.header='S18: Mn-Fe-Cd',map.alpha=0.5,grid.col = 'black')
+dev.off()
+
+#### Gridded trajectory plot (24 h) for USM and Pb-Ca ####
+png(filename='figs/trajUSMF2.png',height=16,width=16,res=400,units='cm')
+trajLevel(subset(usmt,lat > 2 & lat < 8 & lon > 90 & lon < 120),
+          pollutant='f_metal2',statistic='difference',projection='mercator',
+          parameters = NULL,border=NA,map.res = 'hires',type='monsoon',col='jet',
+          layout=c(2,2),key.header='USM: Pb-Ca',map.alpha=0.5,grid.col = 'black')
+dev.off()
+
+#### Gridded trajectory plot (24 h) for S18 and Pb-Ca ####
+png(filename='figs/trajS18F2.png',height=16,width=16,res=400,units='cm')
+trajLevel(subset(s18t,lat > 2 & lat < 8 & lon > 90 & lon < 120),
+          pollutant='f_metal2',statistic='difference',projection='mercator',
+          parameters = NULL,border=NA,map.res = 'hires',type='monsoon',col='jet',
+          layout=c(2,2),key.header='USM: Pb-Ca',map.alpha=0.5,grid.col = 'black')
+dev.off()
+
+#### Gridded trajectory plot (24 h) for USM and Ni-Zn ####
+png(filename='figs/trajUSMF3.png',height=16,width=16,res=400,units='cm')
+trajLevel(subset(usmt,lat > 2 & lat < 8 & lon > 90 & lon < 120),
+          pollutant='f_metal3',statistic='difference',projection='mercator',
+          parameters = NULL,border=NA,map.res = 'hires',type='monsoon',col='jet',
+          layout=c(2,2),key.header='USM: Ni-Zn',map.alpha=0.5,grid.col = 'black')
+dev.off()
+
+#### Gridded trajectory plot (24 h) for S18 and Ni-Zn ####
+png(filename='figs/trajS18F3.png',height=16,width=16,res=400,units='cm')
+trajLevel(subset(s18t,lat > 2 & lat < 8 & lon > 90 & lon < 120),
+          pollutant='f_metal3',statistic='difference',projection='mercator',
+          parameters = NULL,border=NA,map.res = 'hires',type='monsoon',col='jet',
+          layout=c(2,2),key.header='S18: Ni-Zn',map.alpha=0.5,grid.col = 'black')
+dev.off()
+
+#### Gridded trajectory plot (24 h) for USM and Cu-Mg ####
+png(filename='figs/trajUSMF4.png',height=16,width=16,res=400,units='cm')
+trajLevel(subset(usmt,lat > 2 & lat < 8 & lon > 90 & lon < 120),
+          pollutant='f_metal4',statistic='difference',projection='mercator',
+          parameters = NULL,border=NA,map.res = 'hires',type='monsoon',col='jet',
+          layout=c(2,2),key.header='USM: Cu-Mg',map.alpha=0.5,grid.col = 'black')
+dev.off()
+
+#### Gridded trajectory plot (24 h) for S18 and Cu-Mg ####
+png(filename='figs/trajS18F4.png',height=16,width=16,res=400,units='cm')
+trajLevel(subset(s18t,lat > 2 & lat < 8 & lon > 90 & lon < 120),
+          pollutant='f_metal4',statistic='difference',projection='mercator',
+          parameters = NULL,border=NA,map.res = 'hires',type='monsoon',col='jet',
+          layout=c(2,2),key.header='USM: Cu-Mg',map.alpha=0.5,grid.col = 'black')
+dev.off()

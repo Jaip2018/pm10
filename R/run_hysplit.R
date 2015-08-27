@@ -45,7 +45,7 @@ trajS18_2012_96h<-importTraj(site='s18_2012_96h',year=2012,local='./TrajProc/')
 
 
 # For usm for the year 2012 and 96 hours
-procTraj(lat=5.357728,lon=100.301739,year=2012,
+procTraj(lat=siteDetails$latitude[1],lon=siteDetails$latitude[1],year=2012,
          name='usm_2012_96h',hours=96,height=10,
          met='/Users/Yusri/Documents/Work/Data analysis/ozone_paper/TrajData/',
          out='/Users/Yusri/Documents/Work/Data analysis/pm10/TrajProc/')
@@ -82,13 +82,39 @@ trajLevel(s18t,pollutant='pm10',statistic='frequency',orientation = c(90,90,0))
 trajLevel(s18t,pollutant='pm10',statistic='difference',orientation=c(90,90,0),
           map.res='hires')
 
-# For date 2012-06-20
-
-d1 <- selectByDate(trajS18_2012_96h,start='20/6/2012',end='20/6/2012')
-d2 <- selectByDate(trajS18_2012_96h,start='11/8/2012',end='11/8/2012')
-d <- rbind(d1,d2)
-d$day <- as.Date(d$date)
-
-trajPlot(d,
+# Trajectory plot with factors
+#### S18 ####
+# Factor 1: Mn-Fe-Cd
+trajPlot(s18t,pollutant = 'f_metal1',
          map.res = 'hires', projection = 'mercator',parameters=NULL,
-         grid.col = 'black',lwd=2,type='day',layout=c(2,1))
+         grid.col = 'black',lwd=2)
+# Factor 2: Pb-Ca
+trajPlot(s18t,pollutant = 'f_metal2',
+         map.res = 'hires', projection = 'mercator',parameters=NULL,
+         grid.col = 'black',lwd=2)
+# Factor 3: Ni-Zn
+trajPlot(s18t,pollutant = 'f_metal3',
+         map.res = 'hires', projection = 'mercator',parameters=NULL,
+         grid.col = 'black',lwd=2)
+# Factor 4: Mg-Cu
+trajPlot(s18t,pollutant = 'f_metal4',
+         map.res = 'hires', projection = 'mercator',parameters=NULL,
+         grid.col = 'black',lwd=2)
+
+#### USM ####
+# Factor 1: Mn-Fe-Cd
+trajPlot(usmt,pollutant = 'f_metal1',
+         map.res = 'hires', projection = 'mercator',parameters=NULL,
+         grid.col = 'black',lwd=2)
+# Factor 2: Pb-Ca
+trajPlot(usmt,pollutant = 'f_metal2',
+         map.res = 'hires', projection = 'mercator',parameters=NULL,
+         grid.col = 'black',lwd=2)
+# Factor 3: Ni-Zn
+trajPlot(usmt,pollutant = 'f_metal3',
+         map.res = 'hires', projection = 'mercator',parameters=NULL,
+         grid.col = 'black',lwd=2)
+# Factor 4: Mg-Cu
+trajPlot(usmt,pollutant = 'f_metal4',
+         map.res = 'hires', projection = 'mercator',parameters=NULL,
+         grid.col = 'black',lwd=2)
