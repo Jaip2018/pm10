@@ -287,7 +287,7 @@ fa$date <- as.POSIXlt(fa$date,format="%m/%d/%y")
 png(filename='figs/fig4.png',height=8,width=16,res=360,units='cm')
 par(mai=c(0.8,0.6,0.4,0.2))
 barplot(fa$F1,names.arg = fa$date,col='white',ylim=c(-3,1.5))
-lines(x=c(90,90),
+lines(x=c(89,89),
       y=c(-10,10),lty = 2, col ='black',lwd=2)
 mtext(side=2,'Factor scores',line = 2)
 mtext(side=1,'Date',line = 2.5)
@@ -501,7 +501,7 @@ text(x=as.POSIXlt('2011-11-18'),y=0.0043,'a)',cex=0.8)
 par(mai=c(0.1,0.7,0.15,0.1))
 plot(usm$date,usm$Mg,type='l',lwd=1, xlab= '',ylab='',cex.axis=0.7)
 lines(s18$date,s18$Mg,lty=4,lwd=2)
-mtext(side=2,expression(paste('Pb (ng m'^'-3',')')),line=2)
+mtext(side=2,expression(paste('Mg (ng m'^'-3',')')),line=2)
 lines(x=c(as.POSIXlt('2011-12-01'),as.POSIXlt('2011-12-01')),
       y=c(-10,200),lty=5,lwd=2)
 lines(x=c(as.POSIXlt('2012-04-01'),as.POSIXlt('2012-04-01')),
@@ -518,6 +518,61 @@ text(x=as.POSIXlt('2011-11-18'),y=0.085,'b)',cex=0.8)
 mtext("Date", side=1, outer=T, at=0.55,line = 2)
 dev.off()
 
+#### Fig. 10 Factors (1-4) for metals barplot ####
 
+png(filename='figs/fig10.png',height=16,width=16,res=360,units='cm')
+par(mai=c(0.8,0.6,0.4,0.2),mfrow=c(4,1))
+
+# a) Factor 1 Mn-Fe-Cd
+par(mai=c(0.1,0.5,0.32,0.1))
+barplot(fa$F1.1,names.arg = fa$date,col='white',
+        ylim=c(min(fa$F1.1)-0.5,max(fa$F1.1))+0.5, xaxt='n')
+lines(x=c(89,89),
+      y=c(-10,10),lty = 2, col ='black',lwd=2)
+mtext(side=3,'S18',line=0.5, at = 45)
+mtext(side=3,'USM',line=0.5,at = 135)
+text(x=0,y=max(fa$F1.1) - (0.1*max(fa$F1.1)),'a)',
+     cex=2)
+box()
+minor.tick(ny=2,nx=10)
+
+# b) Factor 2 Pb-Ca
+par(mai=c(0.2,0.5,0.2,0.1))
+barplot(fa$F2,names.arg = fa$date,col='white',
+        ylim=c(min(fa$F2)-0.5,max(fa$F2))+0.5, xaxt='n')
+lines(x=c(89,89),
+      y=c(-10,10),lty = 2, col ='black',lwd=2)
+mtext(side=2,'Factor scores',line = 2, at = -2)
+text(x=0,y=max(fa$F2) - (0.1*max(fa$F2)),'b)',
+     cex=2)
+axis(side=2,at=0)
+box()
+minor.tick(ny=2,nx=10)
+
+
+# c) Factor 3 Zn-Ni
+par(mai=c(0.3,0.5,0.1,0.1))
+barplot(fa$F3,names.arg = fa$date,col='white',
+        ylim=c(min(fa$F3)-0.5,max(fa$F3))+0.5, xaxt = 'n')
+lines(x=c(89,89),
+      y=c(-10,10),lty = 2, col ='black',lwd=2)
+text(x=0,y=max(fa$F3) - (0.1*max(fa$F3)),'c)',
+     cex=2)
+box()
+minor.tick(ny=2,nx=10)
+
+# d) Factor 4 Mg-Cu
+par(mai=c(0.5,0.5,0,0.1))
+barplot(fa$F4,names.arg = fa$date,col='white',
+        ylim=c(min(fa$F4)-0.5,max(fa$F4))+0.5)
+lines(x=c(89,89),
+      y=c(-10,10),lty = 2, col ='black',lwd=2)
+mtext(side=1,'Date',line = 2.5)
+text(x=0,y=max(fa$F4) - (0.1*max(fa$F4)),'d)',
+     cex=2)
+box()
+minor.tick(ny=2,nx=10)
+
+dev.off()
 
 

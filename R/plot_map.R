@@ -4,8 +4,6 @@
 library(openair)
 library(lattice)
 
-
-
 # Plot the map
 
 ## Input coordinates of stations: S18 and USM
