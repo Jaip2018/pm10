@@ -1,7 +1,7 @@
 # Run Hysplit, this function changes the working directory.
 ## USM
 for(i in 2011:2012){
-  procTraj(lat=siteDetails$latitude[2],lon=siteDetails$latitude[2],year=i,
+  procTraj(lat=siteDetails$latitude[2],lon=siteDetails$longitude[2],year=i,
            name='usm',hours=24,height=10,
            met='/Users/Yusri/Documents/Work/Data analysis/ozone_paper/TrajData/',
            out='/Users/Yusri/Documents/Work/Data analysis/pm10/TrajProc/')

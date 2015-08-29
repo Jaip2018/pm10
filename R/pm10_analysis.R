@@ -311,7 +311,7 @@ trajPlot(d,
          xlim=c(89,106),ylim=c(-4,13),
          map.res = 'hires', projection = 'mercator',parameters=NULL,
          grid.col = 'transparent',lwd=2,type='day',layout=c(2,2),fontsize=12,
-         map.alpha = 0.6,origin=FALSE)
+         map.alpha = 0.6,origin=TRUE)
 dev.off()
 
 rm(d1,d2,d3,d4,d)
@@ -604,11 +604,11 @@ rm(fa_s18f1,fa_s18f11,fa_s18f2,fa_s18f3,fa_s18f4,fa_s18)
 #### Gridded trajectory plot (24 h) for USM and PM10 ####
 png(filename='figs/trajUSMpm10.png',height=16,width=16,res=400,units='cm')
 trajLevel(usmt,
-          xlim=c(94,106),ylim=c(-1,11),
+          #xlim=c(94,106),ylim=c(-1,11),
           pollutant='pm10',statistic='difference',projection='mercator',
           parameters = NULL,border=NA,map.res = 'hires',type='monsoon',col='increment',
           layout=c(2,2),key.header='USM: PM10',map.alpha=0.6,grid.col = 'transparent',
-          origin=FALSE, fontsize = 16)
+          origin=TRUE, fontsize = 16)
 dev.off()
 
 #### Gridded trajectory plot (24 h) for S18 and PM10 ####
@@ -618,7 +618,7 @@ trajLevel(s18t,
           pollutant='pm10',statistic='difference',projection='mercator',
           parameters = NULL,border=NA,map.res = 'hires',type='monsoon',col='increment',
           layout=c(2,2),key.header='S18: PM10',map.alpha=0.6,grid.col = 'transparent',
-          origin=FALSE, fontsize = 16)
+          origin=TRUE, fontsize = 16)
 dev.off()
 
 #### Gridded trajectory plot (24 h) for USM and Mn-Fe-Cd ####
@@ -628,7 +628,7 @@ trajLevel(usmt,
           pollutant='f_metal1',statistic='difference',projection='mercator',
           parameters = NULL,border=NA,map.res = 'hires',type='monsoon',col='increment',
           layout=c(2,2),key.header='USM: Mn-Fe-Cd',map.alpha=0.6,grid.col = 'transparent',
-          origin=FALSE, fontsize = 16)
+          origin=TRUE, fontsize = 16)
 dev.off()
 
 #### Gridded trajectory plot (24 h) for S18 and Mn-Fe-Cd ####
@@ -638,7 +638,7 @@ trajLevel(s18t,
           pollutant='f_metal1',statistic='difference',projection='mercator',
           parameters = NULL,border=NA,map.res = 'hires',type='monsoon',col='increment',
           layout=c(2,2),key.header='S18: Mn-Fe-Cd',map.alpha=0.6,grid.col = 'transparent',
-          origin=FALSE, fontsize = 16)
+          origin=TRUE, fontsize = 16)
 dev.off()
 
 #### Gridded trajectory plot (24 h) for USM and Pb-Ca ####
@@ -648,7 +648,7 @@ trajLevel(usmt,
           pollutant='f_metal2',statistic='difference',projection='mercator',
           parameters = NULL,border=NA,map.res = 'hires',type='monsoon',col='increment',
           layout=c(2,2),key.header='USM: Pb-Ca',map.alpha=0.6,grid.col = 'transparent',
-          origin=FALSE, fontsize = 16)
+          origin=TRUE, fontsize = 16)
 dev.off()
 
 #### Gridded trajectory plot (24 h) for S18 and Pb-Ca ####
@@ -658,7 +658,7 @@ trajLevel(s18t,
           pollutant='f_metal2',statistic='difference',projection='mercator',
           parameters = NULL,border=NA,map.res = 'hires',type='monsoon',col='increment',
           layout=c(2,2),key.header='S18: Pb-Ca',map.alpha=0.6,grid.col = 'transparent',
-          origin = FALSE, fontsize = 16)
+          origin = TRUE, fontsize = 16)
 dev.off()
 
 #### Gridded trajectory plot (24 h) for USM and Ni-Zn ####
@@ -668,7 +668,7 @@ trajLevel(usmt,
           pollutant='f_metal3',statistic='difference',projection='mercator',
           parameters = NULL,border=NA,map.res = 'hires',type='monsoon',col='increment',
           layout=c(2,2),key.header='USM: Ni-Zn',map.alpha=0.6,grid.col = 'transparent',
-          origin = FALSE, fontsize = 16)
+          origin = TRUE, fontsize = 16)
 dev.off()
 
 #### Gridded trajectory plot (24 h) for S18 and Ni-Zn ####
@@ -678,7 +678,7 @@ trajLevel(s18t,
           pollutant='f_metal3',statistic='difference',projection='mercator',
           parameters = NULL,border=NA,map.res = 'hires',type='monsoon',col='increment',
           layout=c(2,2),key.header='S18: Ni-Zn',map.alpha=0.6,grid.col = 'transparent',
-          origin = FALSE, fontsize = 16)
+          origin = TRUE, fontsize = 16)
 dev.off()
 
 #### Gridded trajectory plot (24 h) for USM and Cu-Mg ####
@@ -688,7 +688,7 @@ trajLevel(usmt,
           pollutant='f_metal4',statistic='difference',projection='mercator',
           parameters = NULL,border=NA,map.res = 'hires',type='monsoon',col='increment',
           layout=c(2,2),key.header='USM: Cu-Mg',map.alpha=0.6,grid.col = 'transparent',
-          origin = FALSE, fontsize = 16)
+          origin = TRUE, fontsize = 16)
 dev.off()
 
 #### Gridded trajectory plot (24 h) for S18 and Cu-Mg ####
@@ -698,7 +698,7 @@ trajLevel(s18t,
           pollutant='f_metal4',statistic='difference',projection='mercator',
           parameters = NULL,border=NA,map.res = 'hires',type='monsoon',col='increment',
           layout=c(2,2),key.header='S18: Cu-Mg',map.alpha=0.6,grid.col = 'transparent',
-          origin = FALSE, fontsize = 16)
+          origin = TRUE, fontsize = 16)
 dev.off()
 
 #### To determine the conc. of metals during haze ####
