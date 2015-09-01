@@ -1,8 +1,13 @@
 # Plot map script
 
+# To install openair from GitHub
+# install_github('davidcarslaw/openair')
+
 # Loading packages
 library(openair)
 library(lattice)
+library(devtools)
+
 
 # Plot the map
 
