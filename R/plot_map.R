@@ -31,7 +31,7 @@ siteDetails <- data.frame(site=c('S18','USM'),latitude=c(5.401581,5.357728),
 png(filename = "figs/maps/penang1.jpeg",height=8,width=8,
     bg = "white",units='cm', res = 360, family = "")
 GoogleMapsPlot(siteDetails,lat='latitude',long='longitude',maptype='roadmap',
-               size=c(640,640),labels='site',col='black')
+               size=c(640,640),labels='site',col='black',key=FALSE)
 dev.off()
 
 ### Zoomed out map showing the region
