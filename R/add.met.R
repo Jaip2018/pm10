@@ -1,3 +1,4 @@
+## Function that works together with procTraj.R
 
 add.met <- function(month, Year) {
   
