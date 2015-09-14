@@ -10,7 +10,8 @@
 ## Author: Yusri Yusup, PhD
 ## Date created: 2015-08-04
 
-getMet <- function(year = 2013,month = 1, path_met = '/TrajData') {
+getMet <- function(year = 2013,month = 1, 
+                   path_met = '/Users/Yusri/Documents/Work/Data_analysis/pm10/TrajData/') {
   for (i in seq_along(year)) {
     for (j in seq_along(month)) {
       download.file(url=paste0('ftp://arlftp.arlhq.noaa.gov/pub/archives/reanalysis/RP',

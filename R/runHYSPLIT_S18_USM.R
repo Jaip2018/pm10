@@ -3,12 +3,12 @@
 for(i in 2011:2012){
   procTraj(lat=siteDetails$latitude[2],lon=siteDetails$longitude[2],year=i,
            name='usm',hours=24,height=10,
-           met='/Users/Yusri/Documents/Work/Data analysis/ozone_paper/TrajData/',
-           out='/Users/Yusri/Documents/Work/Data analysis/pm10/TrajProc/')
+           met='/Users/Yusri/Documents/Work/Data_analysis/ozone_paper/TrajData/',
+           out='/Users/Yusri/Documents/Work/Data_analysis/pm10/TrajProc/')
 }
 
 # Reset working directory
-setwd('/Users/Yusri/Documents/Work/Data analysis/pm10/')
+setwd('/Users/Yusri/Documents/Work/Data_analysis/pm10/')
 
 # Import data
 trajUSM<-importTraj(site='usm',year=2011:2012,local='./TrajProc/')
@@ -18,12 +18,12 @@ trajUSM<-importTraj(site='usm',year=2011:2012,local='./TrajProc/')
 for(i in 2011:2012){
   procTraj(lat=siteDetails$latitude[1],lon=siteDetails$longitude[1],year=i,
            name='s18',hours=24,height=10,
-           met='/Users/Yusri/Documents/Work/Data analysis/ozone_paper/TrajData/',
-           out='/Users/Yusri/Documents/Work/Data analysis/pm10/TrajProc/')
+           met='/Users/Yusri/Documents/Work/Data_analysis/ozone_paper/TrajData/',
+           out='/Users/Yusri/Documents/Work/Data_analysis/pm10/TrajProc/')
 }
 
 # Reset working directory
-setwd('/Users/Yusri/Documents/Work/Data analysis/pm10/')
+setwd('/Users/Yusri/Documents/Work/Data_analysis/pm10/')
 
 # Import data
 trajS18<-importTraj(site='s18',year=2011:2012,local='./TrajProc/')
