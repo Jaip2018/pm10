@@ -19,7 +19,7 @@ trajLevel(traj2015,
 
 # Use selectByDate function by month iteratively to combine later to draw animation
 #pb <- txtProgressBar(min = 0, max = 217, style = 3)
-for (i in 1:12){
+for (i in 1:7){
   for (j in 1:31){
     # creating a name for each plot file with leading zeros
     if (j < 10) {name = paste('0',j,sep='')}
@@ -41,12 +41,12 @@ for (i in 1:12){
       break
     
     
-    png(filename = paste('figs/haze/2014_', name_i, '_', name, '.png',sep=''), 
+    png(filename = paste('figs/haze/2015_', name_i, '_', name, '.png',sep=''), 
         height = 400, width = 400)
-    trajPlots <- trajPlot(selectByDate(traj2014, year = 2014,month = i,day = j),
+    trajPlots <- trajPlot(selectByDate(traj2015, year = 2015,month = i,day = j),
                           xlim=c(90,106),ylim=c(-5,11),
                           projection='mercator',parameters = NULL,origin=TRUE,
-                          main = paste('4-day back trajectory, Month ', i, ' 2014'))
+                          main = paste('4-day back trajectory, Month ', i, ' 2015'))
     print(trajPlots)
     dev.off()
     

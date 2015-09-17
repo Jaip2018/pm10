@@ -317,16 +317,16 @@ dev.off()
 rm(d1,d2,d3,d4,d)
 
 #### Fig. 6 Factor 1: Mn-Fe-Cd ####
-png(filename='figs/factor4.png',height=11,width=8,res=360,units='cm')
+png(filename='figs/factor1.png',height=17,width=8,res=360,units='cm')
 
-par(mfrow=c(2,1),tcl=-0.5,omi=c(0.6,0,0.1,0))
+par(mfrow=c(3,1),tcl=-0.5,omi=c(0.6,0,0.1,0))
 
-# Cu
+# Mn
 par(mai=c(0.1,0.7,0.2,0.1))
-plot(usm$date,usm$Cu,type='l',lwd=1, xlab= '',ylab='',cex.axis=0.7, 
+plot(usm$date,usm$Mn,type='l',lwd=1, xlab= '',ylab='',cex.axis=1, 
      xaxt = 'n')
-lines(s18$date,s18$Cu,lty=4,lwd=2)
-mtext(side=2,expression(paste('Cu (ng m'^'-3',')')),line=2)
+lines(s18$date,s18$Mn,lty=4,lwd=2)
+mtext(side=2,expression(paste('Mn (g m'^'-3',')')),line=2)
 lines(x=c(as.POSIXlt('2011-12-01'),as.POSIXlt('2011-12-01')),
       y=c(-10,200),lty=5,lwd=2)
 lines(x=c(as.POSIXlt('2012-04-01'),as.POSIXlt('2012-04-01')),
@@ -337,20 +337,37 @@ lines(x=c(as.POSIXlt('2012-10-01'),as.POSIXlt('2012-10-01')),
       y=c(-10,200),lty=5,lwd=2)
 lines(x=c(as.POSIXlt('2012-12-01'),as.POSIXlt('2012-12-01')),
       y=c(-10,200),lty=5,lwd=2)
-mtext(side=3,'FTM',line=0.5, adj = 0.005,cex=0.7)
-mtext(side=3,'NEM',line=0.5,adj = 0.2,cex=0.7)
-mtext(side=3,'STM',line=0.5, adj=0.47,cex=0.7)
-mtext(side=3,'SWM',line=0.5,adj = 0.7,cex=0.7)
-mtext(side=3,'FTM',line=0.5, adj = 0.95,cex=0.7)
+mtext(side=3,'FTM',line=0.5, adj = 0.005,cex=0.8)
+mtext(side=3,'NEM',line=0.5,adj = 0.2,cex=0.8)
+mtext(side=3,'STM',line=0.5, adj=0.47,cex=0.8)
+mtext(side=3,'SWM',line=0.5,adj = 0.7,cex=0.8)
+mtext(side=3,'FTM',line=0.5, adj = 0.95,cex=0.8)
 legend('topright', legend = c('USM','S18'),
-       lty = c(1, 4), lwd = c(1, 2),cex=0.7)
-text(x=as.POSIXlt('2011-11-18'),y=0.0043,'a)',cex=0.8)
+       lty = c(1, 4), lwd = c(1, 2),cex=0.8)
+text(x=as.POSIXlt('2011-11-18'),y=0.00175,'a)',cex=1.4)
 
-# Mg
-par(mai=c(0.1,0.7,0.15,0.1))
-plot(usm$date,usm$Mg,type='l',lwd=1, xlab= '',ylab='',cex.axis=0.7)
-lines(s18$date,s18$Mg,lty=4,lwd=2)
-mtext(side=2,expression(paste('Pb (ng m'^'-3',')')),line=2)
+# Fe
+par(mai=c(0.15,0.7,0.15,0.1))
+plot(usm$date,usm$Fe,type='l',lwd=1, xlab= '',ylab='',cex.axis=1,
+     xaxt='n')
+lines(s18$date,s18$Fe,lty=4,lwd=2)
+mtext(side=2,expression(paste('Fe (g m'^'-3',')')),line=2)
+lines(x=c(as.POSIXlt('2011-12-01'),as.POSIXlt('2011-12-01')),
+      y=c(-10,200),lty=5,lwd=2)
+lines(x=c(as.POSIXlt('2012-04-01'),as.POSIXlt('2012-04-01')),
+      y=c(-10,200),lty=5,lwd=2)
+lines(x=c(as.POSIXlt('2012-06-01'),as.POSIXlt('2012-06-01')),
+      y=c(-10,200),lty=5,lwd=2)
+lines(x=c(as.POSIXlt('2012-10-01'),as.POSIXlt('2012-10-01')),
+      y=c(-10,200),lty=5,lwd=2)
+lines(x=c(as.POSIXlt('2012-12-01'),as.POSIXlt('2012-12-01')),
+      y=c(-10,200),lty=5,lwd=2)
+text(x=as.POSIXlt('2011-11-18'),y=0.024,'b)',cex=1.4)
+# Cd
+par(mai=c(0.1,0.7,0.18,0.1))
+plot(usm$date,usm$Cd,type='l',lwd=1, xlab= '',ylab='',cex.axis=1)
+lines(s18$date,s18$Cd,lty=4,lwd=2)
+mtext(side=2,expression(paste('Cd (g m'^'-3',')')),line=2)
 lines(x=c(as.POSIXlt('2011-12-01'),as.POSIXlt('2011-12-01')),
       y=c(-10,200),lty=5,lwd=2)
 lines(x=c(as.POSIXlt('2012-04-01'),as.POSIXlt('2012-04-01')),
@@ -362,7 +379,7 @@ lines(x=c(as.POSIXlt('2012-10-01'),as.POSIXlt('2012-10-01')),
 lines(x=c(as.POSIXlt('2012-12-01'),as.POSIXlt('2012-12-01')),
       y=c(-10,200),lty=5,lwd=2)
 
-text(x=as.POSIXlt('2011-11-18'),y=0.085,'b)',cex=0.8)
+text(x=as.POSIXlt('2011-11-18'),y=0.000285,'c)',cex=1.4)
 
 mtext("Date", side=1, outer=T, at=0.55,line = 2)
 dev.off()
@@ -377,7 +394,7 @@ par(mai=c(0.1,0.7,0.2,0.1))
 plot(usm$date,usm$Ca,type='l',lwd=1, xlab= '',ylab='',cex.axis=0.7, 
      xaxt = 'n')
 lines(s18$date,s18$Ca,lty=4,lwd=2)
-mtext(side=2,expression(paste('Ca (ng m'^'-3',')')),line=2)
+mtext(side=2,expression(paste('Ca (g m'^'-3',')')),line=2)
 lines(x=c(as.POSIXlt('2011-12-01'),as.POSIXlt('2011-12-01')),
       y=c(-10,200),lty=5,lwd=2)
 lines(x=c(as.POSIXlt('2012-04-01'),as.POSIXlt('2012-04-01')),
@@ -395,13 +412,13 @@ mtext(side=3,'SWM',line=0.5,adj = 0.7,cex=0.7)
 mtext(side=3,'FTM',line=0.5, adj = 0.95,cex=0.7)
 legend('topright', legend = c('USM','S18'),
        lty = c(1, 4), lwd = c(1, 2),cex=0.7)
-text(x=as.POSIXlt('2011-11-18'),y=0.044,'a)',cex=0.8)
+text(x=as.POSIXlt('2011-11-18'),y=0.0445,'a)',cex=0.8)
 
 # Pb
 par(mai=c(0.1,0.7,0.15,0.1))
 plot(usm$date,usm$Pb,type='l',lwd=1, xlab= '',ylab='',cex.axis=0.7)
 lines(s18$date,s18$Pb,lty=4,lwd=2)
-mtext(side=2,expression(paste('Pb (ng m'^'-3',')')),line=2)
+mtext(side=2,expression(paste('Pb (g m'^'-3',')')),line=2)
 lines(x=c(as.POSIXlt('2011-12-01'),as.POSIXlt('2011-12-01')),
       y=c(-10,200),lty=5,lwd=2)
 lines(x=c(as.POSIXlt('2012-04-01'),as.POSIXlt('2012-04-01')),
@@ -428,7 +445,7 @@ par(mai=c(0.1,0.7,0.2,0.1))
 plot(usm$date,usm$Ni,type='l',lwd=1, xlab= '',ylab='',cex.axis=0.7, 
      xaxt = 'n')
 lines(s18$date,s18$Ni,lty=4,lwd=2)
-mtext(side=2,expression(paste('Ni (ng m'^'-3',')')),line=2)
+mtext(side=2,expression(paste('Ni (g m'^'-3',')')),line=2)
 lines(x=c(as.POSIXlt('2011-12-01'),as.POSIXlt('2011-12-01')),
       y=c(-10,200),lty=5,lwd=2)
 lines(x=c(as.POSIXlt('2012-04-01'),as.POSIXlt('2012-04-01')),
@@ -452,7 +469,7 @@ text(x=as.POSIXlt('2011-11-18'),y=0.00049,'a)',cex=0.8)
 par(mai=c(0.1,0.7,0.15,0.1))
 plot(usm$date,usm$Zn,type='l',lwd=1, xlab= '',ylab='',cex.axis=0.7)
 lines(s18$date,s18$Zn,lty=4,lwd=2)
-mtext(side=2,expression(paste('Zn (ng m'^'-3',')')),line=2)
+mtext(side=2,expression(paste('Zn (g m'^'-3',')')),line=2)
 lines(x=c(as.POSIXlt('2011-12-01'),as.POSIXlt('2011-12-01')),
       y=c(-10,200),lty=5,lwd=2)
 lines(x=c(as.POSIXlt('2012-04-01'),as.POSIXlt('2012-04-01')),
@@ -479,7 +496,7 @@ par(mai=c(0.1,0.7,0.2,0.1))
 plot(usm$date,usm$Cu,type='l',lwd=1, xlab= '',ylab='',cex.axis=0.7, 
      xaxt = 'n')
 lines(s18$date,s18$Cu,lty=4,lwd=2)
-mtext(side=2,expression(paste('Cu (ng m'^'-3',')')),line=2)
+mtext(side=2,expression(paste('Cu (g m'^'-3',')')),line=2)
 lines(x=c(as.POSIXlt('2011-12-01'),as.POSIXlt('2011-12-01')),
       y=c(-10,200),lty=5,lwd=2)
 lines(x=c(as.POSIXlt('2012-04-01'),as.POSIXlt('2012-04-01')),
@@ -503,7 +520,7 @@ text(x=as.POSIXlt('2011-11-18'),y=0.0043,'a)',cex=0.8)
 par(mai=c(0.1,0.7,0.15,0.1))
 plot(usm$date,usm$Mg,type='l',lwd=1, xlab= '',ylab='',cex.axis=0.7)
 lines(s18$date,s18$Mg,lty=4,lwd=2)
-mtext(side=2,expression(paste('Mg (ng m'^'-3',')')),line=2)
+mtext(side=2,expression(paste('Mg (g m'^'-3',')')),line=2)
 lines(x=c(as.POSIXlt('2011-12-01'),as.POSIXlt('2011-12-01')),
       y=c(-10,200),lty=5,lwd=2)
 lines(x=c(as.POSIXlt('2012-04-01'),as.POSIXlt('2012-04-01')),
