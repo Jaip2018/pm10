@@ -321,11 +321,11 @@ png(filename='figs/factor1.png',height=17,width=8,res=360,units='cm')
 
 par(mfrow=c(3,1),tcl=-0.5,omi=c(0.6,0,0.1,0))
 
-# Mn
+# Mn, need to divide by 10 for correction
 par(mai=c(0.1,0.7,0.2,0.1))
-plot(usm$date,usm$Mn,type='l',lwd=1, xlab= '',ylab='',cex.axis=1, 
+plot(usm$date,usm$Mn/10,type='l',lwd=1, xlab= '',ylab='',cex.axis=1, 
      xaxt = 'n')
-lines(s18$date,s18$Mn,lty=4,lwd=2)
+lines(s18$date,s18$Mn/10,lty=4,lwd=2)
 mtext(side=2,expression(paste('Mn (g m'^'-3',')')),line=2)
 lines(x=c(as.POSIXlt('2011-12-01'),as.POSIXlt('2011-12-01')),
       y=c(-10,200),lty=5,lwd=2)
@@ -344,13 +344,13 @@ mtext(side=3,'SWM',line=0.5,adj = 0.7,cex=0.8)
 mtext(side=3,'FTM',line=0.5, adj = 0.95,cex=0.8)
 legend('topright', legend = c('USM','S18'),
        lty = c(1, 4), lwd = c(1, 2),cex=0.8)
-text(x=as.POSIXlt('2011-11-18'),y=0.00175,'a)',cex=1.4)
+text(x=as.POSIXlt('2011-11-18'),y=0.000175,'a)',cex=1.4)
 
-# Fe
+# Fe, need to divide by 10 for correction
 par(mai=c(0.15,0.7,0.15,0.1))
-plot(usm$date,usm$Fe,type='l',lwd=1, xlab= '',ylab='',cex.axis=1,
+plot(usm$date,usm$Fe/10,type='l',lwd=1, xlab= '',ylab='',cex.axis=1,
      xaxt='n')
-lines(s18$date,s18$Fe,lty=4,lwd=2)
+lines(s18$date,s18$Fe/10,lty=4,lwd=2)
 mtext(side=2,expression(paste('Fe (g m'^'-3',')')),line=2)
 lines(x=c(as.POSIXlt('2011-12-01'),as.POSIXlt('2011-12-01')),
       y=c(-10,200),lty=5,lwd=2)
@@ -362,10 +362,10 @@ lines(x=c(as.POSIXlt('2012-10-01'),as.POSIXlt('2012-10-01')),
       y=c(-10,200),lty=5,lwd=2)
 lines(x=c(as.POSIXlt('2012-12-01'),as.POSIXlt('2012-12-01')),
       y=c(-10,200),lty=5,lwd=2)
-text(x=as.POSIXlt('2011-11-18'),y=0.024,'b)',cex=1.4)
-# Cd
+text(x=as.POSIXlt('2011-11-18'),y=0.0024,'b)',cex=1.4)
+# Cd, need to divide by 10 for correction
 par(mai=c(0.1,0.7,0.18,0.1))
-plot(usm$date,usm$Cd,type='l',lwd=1, xlab= '',ylab='',cex.axis=1)
+plot(usm$date,usm$Cd/10,type='l',lwd=1, xlab= '',ylab='',cex.axis=1)
 lines(s18$date,s18$Cd,lty=4,lwd=2)
 mtext(side=2,expression(paste('Cd (g m'^'-3',')')),line=2)
 lines(x=c(as.POSIXlt('2011-12-01'),as.POSIXlt('2011-12-01')),
@@ -379,7 +379,7 @@ lines(x=c(as.POSIXlt('2012-10-01'),as.POSIXlt('2012-10-01')),
 lines(x=c(as.POSIXlt('2012-12-01'),as.POSIXlt('2012-12-01')),
       y=c(-10,200),lty=5,lwd=2)
 
-text(x=as.POSIXlt('2011-11-18'),y=0.000285,'c)',cex=1.4)
+text(x=as.POSIXlt('2011-11-18'),y=0.0000285,'c)',cex=1.4)
 
 mtext("Date", side=1, outer=T, at=0.55,line = 2)
 dev.off()
@@ -389,11 +389,11 @@ png(filename='figs/factor2.png',height=11,width=8,res=360,units='cm')
 
 par(mfrow=c(2,1),tcl=-0.5,omi=c(0.6,0,0.1,0))
 
-# Ca
+# Ca, need to divide by 10 for correction
 par(mai=c(0.1,0.7,0.2,0.1))
-plot(usm$date,usm$Ca,type='l',lwd=1, xlab= '',ylab='',cex.axis=0.7, 
+plot(usm$date,usm$Ca/10,type='l',lwd=1, xlab= '',ylab='',cex.axis=0.7, 
      xaxt = 'n')
-lines(s18$date,s18$Ca,lty=4,lwd=2)
+lines(s18$date,s18$Ca/10,lty=4,lwd=2)
 mtext(side=2,expression(paste('Ca (g m'^'-3',')')),line=2)
 lines(x=c(as.POSIXlt('2011-12-01'),as.POSIXlt('2011-12-01')),
       y=c(-10,200),lty=5,lwd=2)
@@ -412,12 +412,12 @@ mtext(side=3,'SWM',line=0.5,adj = 0.7,cex=0.7)
 mtext(side=3,'FTM',line=0.5, adj = 0.95,cex=0.7)
 legend('topright', legend = c('USM','S18'),
        lty = c(1, 4), lwd = c(1, 2),cex=0.7)
-text(x=as.POSIXlt('2011-11-18'),y=0.0445,'a)',cex=0.8)
+text(x=as.POSIXlt('2011-11-18'),y=0.00445,'a)',cex=0.8)
 
-# Pb
+# Pb, need to divide by 10 for correction
 par(mai=c(0.1,0.7,0.15,0.1))
-plot(usm$date,usm$Pb,type='l',lwd=1, xlab= '',ylab='',cex.axis=0.7)
-lines(s18$date,s18$Pb,lty=4,lwd=2)
+plot(usm$date,usm$Pb/10,type='l',lwd=1, xlab= '',ylab='',cex.axis=0.7)
+lines(s18$date,s18$Pb/10,lty=4,lwd=2)
 mtext(side=2,expression(paste('Pb (g m'^'-3',')')),line=2)
 lines(x=c(as.POSIXlt('2011-12-01'),as.POSIXlt('2011-12-01')),
       y=c(-10,200),lty=5,lwd=2)
@@ -430,7 +430,7 @@ lines(x=c(as.POSIXlt('2012-10-01'),as.POSIXlt('2012-10-01')),
 lines(x=c(as.POSIXlt('2012-12-01'),as.POSIXlt('2012-12-01')),
       y=c(-10,200),lty=5,lwd=2)
 
-text(x=as.POSIXlt('2011-11-18'),y=0.0031,'b)',cex=0.8)
+text(x=as.POSIXlt('2011-11-18'),y=0.00031,'b)',cex=0.8)
 
 mtext("Date", side=1, outer=T, at=0.55,line = 2)
 dev.off()
@@ -440,10 +440,10 @@ png(filename='figs/factor3.png',height=11,width=8,res=360,units='cm')
 
 par(mfrow=c(2,1),tcl=-0.5,omi=c(0.6,0,0.1,0))
 
-# Ni
+# Ni, need to divide by 10 for correction
 par(mai=c(0.1,0.7,0.2,0.1))
-plot(usm$date,usm$Ni,type='l',lwd=1, xlab= '',ylab='',cex.axis=0.7, 
-     xaxt = 'n')
+plot(usm$date,usm$Ni,type='l',lwd=1, xlab= '',ylab='', yaxt = 'n', cex.axis=0.7, 
+     xaxt = 'n',ylim=c(0,0.0007))
 lines(s18$date,s18$Ni,lty=4,lwd=2)
 mtext(side=2,expression(paste('Ni (g m'^'-3',')')),line=2)
 lines(x=c(as.POSIXlt('2011-12-01'),as.POSIXlt('2011-12-01')),
@@ -463,12 +463,14 @@ mtext(side=3,'SWM',line=0.5,adj = 0.7,cex=0.7)
 mtext(side=3,'FTM',line=0.5, adj = 0.95,cex=0.7)
 legend('topright', legend = c('USM','S18'),
        lty = c(1, 4), lwd = c(1, 2),cex=0.7)
-text(x=as.POSIXlt('2011-11-18'),y=0.00049,'a)',cex=0.8)
+axis(side = 2, at = c(0.0001, 0.0003, 0.0005,0.0007), 
+     labels = c('1e-04','3e-04','5e-04','7e-04'), cex.axis = 0.7)
+text(x=as.POSIXlt('2011-11-18'),y=0.00069,'a)',cex=0.8)
 
-# Zn
+# Zn, need to divide by 10 for correction
 par(mai=c(0.1,0.7,0.15,0.1))
-plot(usm$date,usm$Zn,type='l',lwd=1, xlab= '',ylab='',cex.axis=0.7)
-lines(s18$date,s18$Zn,lty=4,lwd=2)
+plot(usm$date,usm$Zn/10,type='l',lwd=1, xlab= '',ylab='',cex.axis=0.7)
+lines(s18$date,s18$Zn/10,lty=4,lwd=2)
 mtext(side=2,expression(paste('Zn (g m'^'-3',')')),line=2)
 lines(x=c(as.POSIXlt('2011-12-01'),as.POSIXlt('2011-12-01')),
       y=c(-10,200),lty=5,lwd=2)
@@ -481,7 +483,7 @@ lines(x=c(as.POSIXlt('2012-10-01'),as.POSIXlt('2012-10-01')),
 lines(x=c(as.POSIXlt('2012-12-01'),as.POSIXlt('2012-12-01')),
       y=c(-10,200),lty=5,lwd=2)
 
-text(x=as.POSIXlt('2011-11-18'),y=0.0084,'b)',cex=0.8)
+text(x=as.POSIXlt('2011-11-18'),y=0.00084,'b)',cex=0.8)
 
 mtext("Date", side=1, outer=T, at=0.55,line = 2)
 dev.off()
@@ -491,11 +493,11 @@ png(filename='figs/factor4.png',height=11,width=8,res=360,units='cm')
 
 par(mfrow=c(2,1),tcl=-0.5,omi=c(0.6,0,0.1,0))
 
-# Cu
+# Cu, need to divide by 10 for correction
 par(mai=c(0.1,0.7,0.2,0.1))
-plot(usm$date,usm$Cu,type='l',lwd=1, xlab= '',ylab='',cex.axis=0.7, 
+plot(usm$date,usm$Cu/10,type='l',lwd=1, xlab= '',ylab='',cex.axis=0.7, 
      xaxt = 'n')
-lines(s18$date,s18$Cu,lty=4,lwd=2)
+lines(s18$date,s18$Cu/10,lty=4,lwd=2)
 mtext(side=2,expression(paste('Cu (g m'^'-3',')')),line=2)
 lines(x=c(as.POSIXlt('2011-12-01'),as.POSIXlt('2011-12-01')),
       y=c(-10,200),lty=5,lwd=2)
@@ -514,12 +516,12 @@ mtext(side=3,'SWM',line=0.5,adj = 0.7,cex=0.7)
 mtext(side=3,'FTM',line=0.5, adj = 0.95,cex=0.7)
 legend('topright', legend = c('USM','S18'),
        lty = c(1, 4), lwd = c(1, 2),cex=0.7)
-text(x=as.POSIXlt('2011-11-18'),y=0.0043,'a)',cex=0.8)
+text(x=as.POSIXlt('2011-11-18'),y=0.00043,'a)',cex=0.8)
 
-# Mg
+# Mg, need to divide by 10 for correction
 par(mai=c(0.1,0.7,0.15,0.1))
-plot(usm$date,usm$Mg,type='l',lwd=1, xlab= '',ylab='',cex.axis=0.7)
-lines(s18$date,s18$Mg,lty=4,lwd=2)
+plot(usm$date,usm$Mg/10,type='l',lwd=1, xlab= '',ylab='',cex.axis=0.7)
+lines(s18$date,s18$Mg/10,lty=4,lwd=2)
 mtext(side=2,expression(paste('Mg (g m'^'-3',')')),line=2)
 lines(x=c(as.POSIXlt('2011-12-01'),as.POSIXlt('2011-12-01')),
       y=c(-10,200),lty=5,lwd=2)
@@ -532,7 +534,7 @@ lines(x=c(as.POSIXlt('2012-10-01'),as.POSIXlt('2012-10-01')),
 lines(x=c(as.POSIXlt('2012-12-01'),as.POSIXlt('2012-12-01')),
       y=c(-10,200),lty=5,lwd=2)
 
-text(x=as.POSIXlt('2011-11-18'),y=0.085,'b)',cex=0.8)
+text(x=as.POSIXlt('2011-11-18'),y=0.0085,'b)',cex=0.8)
 
 mtext("Date", side=1, outer=T, at=0.55,line = 2)
 dev.off()
