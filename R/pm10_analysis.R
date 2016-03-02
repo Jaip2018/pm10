@@ -280,9 +280,19 @@ mtext(expression(paste('PM10 (',mu,'g m'^'-3',')')), side=2, outer=T, at=0.5,
 dev.off()
 
 #### Fig. 4 Factor 1 barplot ####
-fa <- read.csv('data/factor_analy.csv',sep=',',header = TRUE)
-# Reclass the date variable
-fa$date <- as.POSIXlt(fa$date,format="%m/%d/%y")
+# New factor analysis results
+fa1 <- fa # To save the old fa dataframe, note that fa must not be deleted
+# To extract the date to combine with factor scores
+fdata <- as.data.frame(fa1$date, row.names = NULL)
+fdata <- cbind(fdata,row.names(fdata))
+colnames(fdata) <- c('date','row')
+fdata$row <- as.numeric(fdata$row)
+fa <- read.csv('data/fmet.csv',sep=',',header = TRUE, row.names = NULL)
+colnames(fa) <- c('row','Factor1','Factor2')
+fa$row <- as.numeric(fa$row)
+# Merge the dataframes
+fa2 <- merge(fdata,fa,by='row')
+
 
 png(filename='figs/fig4.png',height=8,width=16,res=360,units='cm')
 par(mai=c(0.8,0.6,0.4,0.2))
